@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" style="-fx-background-radius: 2em; -fx-background-color: #fff; -fx-border-radius: 2em;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="94.0" prefHeight="430.0" prefWidth="606.0" style="-fx-background-color: #fff4eb;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <DialogPane headerText="Amount Spent" layoutX="173.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="171.0" prefWidth="260.0" style="-fx-background-color: #ffe4cc; -fx-background-radius: 6em;">
+                <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+                </content>
+                <expandableContent>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+                </expandableContent>
+               <header>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account #1" textAlignment="CENTER" textOrigin="CENTER" translateX="90.0">
+                     <font>
+                        <Font name="Ebrima" size="16.0" />
+                     </font>
+                  </Text>
+               </header>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </DialogPane>
+            <DialogPane headerText="Amount Spent" layoutX="14.0" layoutY="224.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="171.0" prefWidth="260.0" style="-fx-background-color: #fff; -fx-background-radius: 6em;">
+               <expandableContent>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+               </expandableContent>
+               <header>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account #2" textAlignment="CENTER" textOrigin="CENTER" translateX="90.0">
+                     <font>
+                        <Font name="Ebrima" size="16.0" />
+                     </font>
+                  </Text>
+               </header>
+               <effect>
+                  <InnerShadow />
+               </effect>
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+               </content>
+            </DialogPane>
+            <DialogPane headerText="Amount Spent" layoutX="332.0" layoutY="224.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="171.0" prefWidth="260.0" style="-fx-background-color: #C9F8FF; -fx-background-radius: 6em;">
+               <expandableContent>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+               </expandableContent>
+               <header>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account #3" textAlignment="CENTER" textOrigin="CENTER" translateX="90.0">
+                     <font>
+                        <Font name="Ebrima" size="16.0" />
+                     </font>
+                  </Text>
+               </header>
+               <effect>
+                  <InnerShadow />
+               </effect>
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+               </content>
+            </DialogPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="430.0" prefWidth="100.0" style="-fx-background-color: #ffe4cc; -fx-background-radius: 1em;">
+         <children>
+            <AnchorPane prefHeight="430.0" prefWidth="40.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+            <JFXButton alignment="BASELINE_LEFT" graphicTextGap="35.0" layoutY="83.0" prefHeight="47.0" prefWidth="40.0" ripplerFill="#ffb273" text="Accounts">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/AccountsIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" graphicTextGap="35.0" layoutY="130.0" prefHeight="47.0" prefWidth="40.0" ripplerFill="#ffb17a" text="Balance">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/AccountsIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" graphicTextGap="35.0" layoutY="177.0" prefHeight="47.0" prefWidth="72.0" ripplerFill="#ffb273" text="Category">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/AccountsIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" graphicTextGap="35.0" layoutY="224.0" prefHeight="47.0" prefWidth="62.0" ripplerFill="#ffb17a" text="Log out">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/AccountsIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+   </children>
+</AnchorPane>

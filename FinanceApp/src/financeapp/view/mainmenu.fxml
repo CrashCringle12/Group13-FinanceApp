@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" style="-fx-background-radius: 2em; -fx-background-color: #fff; -fx-border-radius: 2em;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="206.0" prefHeight="430.0" prefWidth="494.0" style="-fx-background-color: #fff4eb;">
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+      <AnchorPane prefHeight="430.0" prefWidth="216.0" style="-fx-background-color: #ffe4cc; -fx-background-radius: 1em;">
+         <children>
+            <AnchorPane prefHeight="430.0" prefWidth="40.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+            <JFXButton alignment="BASELINE_LEFT" graphicTextGap="35.0" layoutY="83.0" prefHeight="47.0" prefWidth="216.0" ripplerFill="#ffb273" text="Accounts">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/AccountsIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" graphicTextGap="35.0" layoutY="130.0" prefHeight="47.0" prefWidth="216.0" ripplerFill="#ffb17a" text="Balance">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/AccountsIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" graphicTextGap="35.0" layoutY="177.0" prefHeight="47.0" prefWidth="216.0" ripplerFill="#ffb273" text="Category">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/AccountsIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" graphicTextGap="35.0" layoutY="224.0" prefHeight="47.0" prefWidth="216.0" ripplerFill="#ffb17a" text="Log out">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/AccountsIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+   </children>
+</AnchorPane>

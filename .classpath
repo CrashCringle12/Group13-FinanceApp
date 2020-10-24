@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="FinanceApp/src"/>
+	<classpathentry kind="lib" path="FinanceApp/dist/FinanceApp.jar"/>
+	<classpathentry kind="lib" path="FinanceApp/dist/lib/jfoenix-9.0.10.jar"/>
+	<classpathentry kind="lib" path="FinanceApp/Util/jfoenix-9.0.10.jar"/>
+	<classpathentry kind="lib" path="jfoenix-8.0.10.jar"/>
+	<classpathentry kind="output" path="FinanceApp/build/classes"/>
+</classpath>
