@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package financeapp;
+
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +19,7 @@ public class FinanceApp extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("view/mainmenu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("View/mainmenu.fxml"));
         
         Scene scene = new Scene(root);
         
