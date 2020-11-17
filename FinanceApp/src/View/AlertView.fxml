@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.ButtonType?>
 <?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -40,42 +37,6 @@
                   <DropShadow />
                </effect>
             </AnchorPane>
-            <JFXButton alignment="BASELINE_LEFT" graphicTextGap="35.0" layoutY="83.0" prefHeight="47.0" prefWidth="40.0" ripplerFill="#ffb273" text="Accounts">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/AccountsIcon.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" graphicTextGap="35.0" layoutY="130.0" prefHeight="47.0" prefWidth="40.0" ripplerFill="#ffb17a" text="Balance">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/AccountsIcon.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" graphicTextGap="35.0" layoutY="177.0" prefHeight="47.0" prefWidth="72.0" ripplerFill="#ffb273" text="Category">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/AccountsIcon.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" graphicTextGap="35.0" layoutY="224.0" prefHeight="47.0" prefWidth="62.0" ripplerFill="#ffb17a" text="Log out">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/AccountsIcon.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
          </children>
          <effect>
             <DropShadow />
