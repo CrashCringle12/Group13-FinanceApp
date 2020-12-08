@@ -19,7 +19,7 @@ public class FinanceApp extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("View/mainmenu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("View/FXMLDocument.fxml"));
         
         Scene scene = new Scene(root);
         

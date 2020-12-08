@@ -1,15 +1,191 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLDocumentController">
-    <children>
-        <Button fx:id="button" layoutX="126" layoutY="90" onAction="#handleButtonAction" text="Click Me!" />
-        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <Button fx:id="buttonUpdate" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#updateMoneyModel" text="Update" />
-    </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="852.0" style="-fx-background-radius: 2em; -fx-background-color: #fff; -fx-border-radius: 2em;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLDocumentController">
+   <children>
+      <AnchorPane layoutX="185.0" prefHeight="470.0" prefWidth="667.0" style="-fx-background-color: #fff4eb;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <TableView fx:id="alertTable" editable="true" layoutX="33.0" layoutY="180.0" prefHeight="276.0" prefWidth="596.0">
+               <columns>
+                  <TableColumn fx:id="alertID" prefWidth="29.0" text="ID" />
+                  <TableColumn fx:id="severity" prefWidth="75.0" text="Severity" />
+                  <TableColumn fx:id="date" prefWidth="85.0" text="Date" />
+                  <TableColumn fx:id="accountName" minWidth="7.0" prefWidth="147.0" text="Account" />
+                  <TableColumn fx:id="description" prefWidth="231.0" text="Description" />
+               </columns>
+            </TableView>
+            <Text layoutX="29.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search Alerts">
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </Text>
+            <TextField fx:id="searchbar" layoutX="207.0" layoutY="139.0" prefHeight="25.0" prefWidth="231.0" text="Enter Account Name" />
+            <Button fx:id="buttonCreate" layoutX="326.0" layoutY="21.0" mnemonicParsing="false" onAction="#createAlert" text="Create Alert" />
+            <Button fx:id="buttonUpdate" layoutX="431.0" layoutY="21.0" mnemonicParsing="false" onAction="#updateAlert" text="Update Alert" />
+            <Button fx:id="buttonDelete" layoutX="537.0" layoutY="21.0" mnemonicParsing="false" onAction="#deleteAlert" text="Delete Alerts" />
+            <Button fx:id="detailbutton" layoutX="360.0" layoutY="75.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="37.0" prefWidth="108.0" text="Show Details" />
+            <Button fx:id="showinpane" layoutX="496.0" layoutY="75.0" mnemonicParsing="false" onAction="#showDetailsInPane" prefHeight="37.0" prefWidth="152.0" text="Show Details In-Pane" />
+            <Line endX="446.0" startX="-100.0" />
+            <Text fx:id="searchBy" strokeType="OUTSIDE" strokeWidth="0.0" text="By Account Name">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Button fx:id="searchbutton" layoutX="443.0" layoutY="139.0" mnemonicParsing="false" onAction="#search" prefHeight="25.0" prefWidth="74.0" text="Search" />
+            <Button fx:id="advancebutton" layoutX="530.0" layoutY="139.0" mnemonicParsing="false" onAction="#advancedSearch" prefHeight="25.0" prefWidth="118.0" text="Advanced Search" />
+            <ImageView fitHeight="130.0" fitWidth="152.0" layoutX="29.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/icon.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="470.0" prefWidth="190.0" style="-fx-background-color: #ffe4cc; -fx-background-radius: 1em;">
+         <children>
+            <Button layoutX="25.0" layoutY="38.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="164.0" style="-fx-background-color: #ffdaaa;" text="Read By ID">
+               <effect>
+                  <DropShadow color="#794a12">
+                     <input>
+                        <Glow />
+                     </input>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Georgia" size="12.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.7428571428571429" startX="0.880952380952381">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#4d4747" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Button layoutX="25.0" layoutY="75.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="164.0" style="-fx-background-color: #ffb760;" text="Read By Severity">
+               <effect>
+                  <DropShadow color="#794a12">
+                     <input>
+                        <Glow />
+                     </input>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Georgia" size="12.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.7428571428571429" startX="0.880952380952381">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#4d4747" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Button layoutX="25.0" layoutY="112.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="164.0" style="-fx-background-color: #ffdaaa;" text="Read By Account Name">
+               <effect>
+                  <DropShadow color="#794a12">
+                     <input>
+                        <Glow />
+                     </input>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Georgia" size="12.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.7428571428571429" startX="0.880952380952381">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#4d4747" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill></Button>
+            <Button layoutX="25.0" layoutY="149.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="164.0" style="-fx-background-color: #ffb760;" text="Read By Account &amp; Severity">
+               <effect>
+                  <DropShadow color="#794a12">
+                     <input>
+                        <Glow />
+                     </input>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Georgia" size="12.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.7428571428571429" startX="0.880952380952381">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#4d4747" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill></Button>
+            <Button fx:id="button" layoutX="25.0" layoutY="186.0" onAction="#readAll" prefHeight="37.0" prefWidth="164.0" style="-fx-background-color: #ffdaaa;" text="Read All Alerts">
+               <effect>
+                  <DropShadow color="#794a12">
+                     <input>
+                        <Glow />
+                     </input>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Georgia" size="12.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.7428571428571429" startX="0.880952380952381">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#4d4747" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Button layoutX="26.0" layoutY="430.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="164.0" style="-fx-background-color: #ffecd8;" text="Go Back">
+               <effect>
+                  <DropShadow color="#403486">
+                     <input>
+                        <Glow />
+                     </input>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Georgia" size="12.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.7428571428571429" startX="0.880952380952381">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <AnchorPane prefHeight="470.0" prefWidth="25.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+   </children>
 </AnchorPane>

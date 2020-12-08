@@ -24,15 +24,18 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Lamar Cooley
  */
 @Entity
-@Table(name = "ALERT")
+@Table(name = "ALERTMODEL")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Alert.findAll", query = "SELECT a FROM Alert a"),
-    @NamedQuery(name = "Alert.findById", query = "SELECT a FROM Alert a WHERE a.id = :id"),
-    @NamedQuery(name = "Alert.findBySeverity", query = "SELECT a FROM Alert a WHERE a.severity = :severity"),
-    @NamedQuery(name = "Alert.findByAccountname", query = "SELECT a FROM Alert a WHERE a.accountname = :accountname"),
-    @NamedQuery(name = "Alert.findByDate", query = "SELECT a FROM Alert a WHERE a.date = :date")})
-public class Alert implements Serializable {
+    @NamedQuery(name = "Alertmodel.findAll", query = "SELECT a FROM Alertmodel a"),
+    @NamedQuery(name = "Alertmodel.findById", query = "SELECT a FROM Alertmodel a WHERE a.id = :id"),
+    @NamedQuery(name = "Alertmodel.findBySeverity", query = "SELECT a FROM Alertmodel a WHERE a.severity = :severity"),
+    @NamedQuery(name = "Alertmodel.findByAccountname", query = "SELECT a FROM Alertmodel a WHERE a.accountname = :accountname"),
+    @NamedQuery(name = "Alertmodel.findByAccountnameAdvanced", query = "SELECT a FROM Alertmodel a WHERE LOWER(a.accountname) LIKE CONCAT('%', LOWER(:accountname), '%')"),
+    @NamedQuery(name = "Alertmodel.findByDescription", query = "SELECT a FROM Alertmodel a WHERE LOWER(a.description) LIKE CONCAT('%', LOWER(:description), '%')"),
+    @NamedQuery(name = "Alertmodel.findByDate", query = "SELECT a FROM Alertmodel a WHERE a.date = :date")})
+
+public class Alertmodel implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -41,8 +44,7 @@ public class Alert implements Serializable {
     private Integer id;
     @Column(name = "SEVERITY")
     private Boolean severity;
-    @Lob
-    @Column(name = "DESCRIPTION")
+    @Lob        @Column(name = "DESCRIPTION")
     private String description;
     @Column(name = "ACCOUNTNAME")
     private String accountname;
@@ -50,10 +52,10 @@ public class Alert implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
-    public Alert() {
+    public Alertmodel() {
     }
 
-    public Alert(Integer id) {
+    public Alertmodel(Integer id) {
         this.id = id;
     }
 
@@ -107,10 +109,10 @@ public class Alert implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Alert)) {
+        if (!(object instanceof Alertmodel)) {
             return false;
         }
-        Alert other = (Alert) object;
+        Alertmodel other = (Alertmodel) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -119,7 +121,7 @@ public class Alert implements Serializable {
 
     @Override
     public String toString() {
-        return "Model.Alert[ id=" + id + " ]";
+        return "Model.Alertmodel[ id=" + id + " ]";
     }
     
 }
