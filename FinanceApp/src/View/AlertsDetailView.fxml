@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="833.0" style="-fx-background-radius: 2em; -fx-background-color: #fff; -fx-border-radius: 2em;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DetailModelViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="833.0" style="-fx-background-radius: 2em; -fx-background-color: #fff; -fx-border-radius: 2em;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DetailedAlertController">
    <children>
       <AnchorPane layoutX="185.0" prefHeight="470.0" prefWidth="646.0" style="-fx-background-color: #fff4eb;">
          <effect>

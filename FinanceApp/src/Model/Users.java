@@ -17,61 +17,55 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author ashad
+ * @author Lamar Cooley
  */
 @Entity
 @Table(name = "USERS")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u")
-    , @NamedQuery(name = "Users.findById", query = "SELECT u FROM Users u WHERE u.id = :id")
-    , @NamedQuery(name = "Users.findByName", query = "SELECT u FROM Users u WHERE u.name = :name")
-    , @NamedQuery(name = "Users.findByAccountnumber", query = "SELECT u FROM Users u WHERE u.accountnumber = :accountnumber")
+    , @NamedQuery(name = "Users.findByUsername", query = "SELECT u FROM Users u WHERE u.username = :username")
+    , @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password")
     , @NamedQuery(name = "Users.findByEmail", query = "SELECT u FROM Users u WHERE u.email = :email")})
 public class Users implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "ID")
-    private Integer id;
-    @Column(name = "NAME")
-    private String name;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "ACCOUNTNUMBER")
-    private Double accountnumber;
+    @Column(name = "USERNAME")
+    private String username;
+    @Basic(optional = false)
+    @Column(name = "PASSWORD")
+    private String password;
     @Column(name = "EMAIL")
     private String email;
 
     public Users() {
     }
 
-    public Users(Integer id) {
-        this.id = id;
+    public Users(String username) {
+        this.username = username;
     }
 
-    public Integer getId() {
-        return id;
+    public Users(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public String getUsername() {
+        return username;
     }
 
-    public String getName() {
-        return name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getPassword() {
+        return password;
     }
 
-    public Double getAccountnumber() {
-        return accountnumber;
-    }
-
-    public void setAccountnumber(Double accountnumber) {
-        this.accountnumber = accountnumber;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
@@ -85,7 +79,7 @@ public class Users implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (username != null ? username.hashCode() : 0);
         return hash;
     }
 
@@ -96,7 +90,7 @@ public class Users implements Serializable {
             return false;
         }
         Users other = (Users) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.username == null && other.username != null) || (this.username != null && !this.username.equals(other.username))) {
             return false;
         }
         return true;
@@ -104,7 +98,7 @@ public class Users implements Serializable {
 
     @Override
     public String toString() {
-        return "Model.Users[ id=" + id + " ]";
+        return "Model.Users[ username=" + username + " ]";
     }
     
 }

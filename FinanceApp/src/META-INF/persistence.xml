@@ -3,6 +3,7 @@
   <persistence-unit name="LamarRussFXMLPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>Model.Alertmodel</class>
+    <class>Model.Users</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/gp13_db;create=true"/>
       <property name="javax.persistence.jdbc.user" value="APP"/>

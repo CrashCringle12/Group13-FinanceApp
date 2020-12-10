@@ -40,7 +40,7 @@ import javax.persistence.Query;
  *
  * @author Lamar Cooley
  */
-public class FXMLDocumentController implements Initializable {
+public class AlertController implements Initializable {
 
     @FXML
     private Button button;
@@ -91,7 +91,23 @@ public class FXMLDocumentController implements Initializable {
         alertTable.setItems(alertData);
         alertTable.refresh();
     }
+   Scene previousScene;
+    public void setTheOleScene(Scene scene) {
+        previousScene = scene;
 
+    }
+        //Borrowed from source code
+    @FXML
+    void goBack(ActionEvent event) {
+        // option 1: get current stage -- from event
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        
+        
+        if (previousScene != null) {
+            stage.setScene(previousScene);
+        }
+
+    }
     @FXML
     void search(ActionEvent event) {
         System.out.println("Clicked");
@@ -119,13 +135,13 @@ public class FXMLDocumentController implements Initializable {
 
         Alertmodel selected = alertTable.getSelectionModel().getSelectedItem();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/DetailModelView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/AlertsDetailView.fxml"));
 
         Parent detailedModelView = loader.load();
 
         Scene tableViewScene = new Scene(detailedModelView);
 
-        DetailModelViewController detailedController = loader.getController();
+        DetailedAlertController detailedController = loader.getController();
         detailedController.initData(selected);
 
         Stage stage = new Stage();
@@ -139,13 +155,13 @@ public class FXMLDocumentController implements Initializable {
 
         Alertmodel selectedAlert = alertTable.getSelectionModel().getSelectedItem();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/DetailModelView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/AlertsDetailView.fxml"));
 
         Parent detailedModelView = loader.load();
 
         Scene tableViewScene = new Scene(detailedModelView);
 
-        DetailModelViewController detailedController = loader.getController();
+        DetailedAlertController detailedController = loader.getController();
 
         detailedController.initData(selectedAlert);
 

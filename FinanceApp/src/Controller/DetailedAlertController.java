@@ -18,7 +18,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-public class DetailModelViewController {
+public class DetailedAlertController {
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
