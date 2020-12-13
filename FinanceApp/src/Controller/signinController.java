@@ -19,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -28,8 +29,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import org.apache.derby.shared.common.error.DerbySQLIntegrityConstraintViolationException;
+import org.eclipse.persistence.exceptions.DatabaseException;
 
 public class signinController {
 
@@ -49,13 +53,13 @@ public class signinController {
     private TextField usernamebar; // Value injected by FXMLLoader
 
     @FXML // fx:id="passwordbar"
-    private TextField passwordbar; // Value injected by FXMLLoader
+    private PasswordField passwordbar; // Value injected by FXMLLoader
 
     @FXML // fx:id="LoginButton"
     private Button LoginButton; // Value injected by FXMLLoader
 
     @FXML // fx:id="password2bar"
-    private TextField password2bar; // Value injected by FXMLLoader
+    private PasswordField password2bar; // Value injected by FXMLLoader
 
     @FXML // fx:id="emailbar"
     private TextField emailbar; // Value injected by FXMLLoader
@@ -63,7 +67,8 @@ public class signinController {
     @FXML // fx:id="policyBox"
     private Pane policyBox; // Value injected by FXMLLoader
     
-
+    public static String userName;
+    
     private Scene scene;
     
     @FXML
@@ -78,13 +83,21 @@ public class signinController {
     void login(Users user) {
         Query query = manager.createNamedQuery("Users.findByUsername");
         query.setParameter("username", user.getUsername());
-
-        Users s = (Users) query.getSingleResult();
+        Users s = null; 
+        try {
+           s = (Users) query.getSingleResult();
+        } catch (NoResultException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Login");
+            alert.setHeaderText("Login Failed");
+            alert.setContentText("Invalid Username or Password");
+            alert.showAndWait(); // line 5
+        } 
 
         if (s != null) {
             if (s.getPassword().equals(user.getPassword())) {
                 try {
-                    nextScreen();
+                    nextScreen(s.getUsername());
                 } catch (IOException ex) {
                     Logger.getLogger(signinController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -93,29 +106,35 @@ public class signinController {
     }
     
     @FXML
-    void nextScreen() throws IOException {
+    void nextScreen(String username) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/AlertsView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/mainview.fxml"));
 
         Parent alertView = loader.load();
 
         Scene mainScene = new Scene(alertView);
 
-        AlertController alertController = loader.getController();
+        MainMenuController mainController = loader.getController();
+        mainController.setUsername(username);
+        userName = username;
 
 
-        alertController.setTheOleScene(scene);
-
+        mainController.setTheOleScene(scene);
         Stage stage = (Stage) scene.getWindow();
 
         stage.setScene(mainScene);
         stage.show();
     }
     
+    Scene previousScene;
+    public void setTheOleScene(Scene scene) {
+        previousScene = scene;
+
+    }
     @FXML
     void register(ActionEvent event) {
         if (policyBox.isVisible()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             if (passwordbar.getText().equals(password2bar.getText())) {
                 if (validate(passwordbar.getText())) {
                     if (emailbar.getText().contains("@")) {
@@ -124,19 +143,19 @@ public class signinController {
                         newRegistration(user);
                     } else {
                         alert.setTitle("Registration");
-                        alert.setHeaderText("Finance App Email Validation");
+                        alert.setHeaderText("Email Validation Failed");
                         alert.setContentText("Invalid Email");
                         alert.showAndWait(); // line 5
                     }
                 } else {
                     alert.setTitle("Registration");
-                    alert.setHeaderText("Finance App Pass Validation");
+                    alert.setHeaderText("Password Validation Failed");
                     alert.setContentText("Password does not conform to policy");
                     alert.showAndWait(); // line 5
                 }
             } else {
                 alert.setTitle("Registration");
-                alert.setHeaderText("Finance App Pass Validation");
+                alert.setHeaderText("Password Validation Failed");
                 alert.setContentText("Passwords Do Not Match");
                 alert.showAndWait(); // line 5
             }
@@ -154,7 +173,7 @@ public class signinController {
             // sanity check
             if (user != null) {
 
-                // create student
+                // create User
                 manager.persist(user);
 
                 // end transaction

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="833.0" style="-fx-background-radius: 2em; -fx-background-color: #fff; -fx-border-radius: 2em;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DetailedAlertController">
+   <children>
+      <AnchorPane layoutX="185.0" prefHeight="470.0" prefWidth="646.0" style="-fx-background-color: #fff4eb;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Button fx:id="buttonCreate" layoutX="290.0" layoutY="21.0" mnemonicParsing="false" onAction="#createAlert" prefHeight="66.0" prefWidth="139.0" style="-fx-background-color: #bfe461;" text="Create New Alert">
+               <font>
+                  <Font name="Georgia Bold Italic" size="12.0" />
+               </font>
+               <effect>
+                  <InnerShadow>
+                     <input>
+                        <Glow />
+                     </input>
+                  </InnerShadow>
+               </effect></Button>
+            <Button fx:id="buttonUpdate" layoutX="431.0" layoutY="21.0" mnemonicParsing="false" onAction="#updateAlert" prefHeight="66.0" prefWidth="100.0" style="-fx-background-color: #4c91c5;" text="Update Alert">
+               <font>
+                  <Font name="Georgia Bold Italic" size="12.0" />
+               </font>
+               <effect>
+                  <InnerShadow>
+                     <input>
+                        <Glow />
+                     </input>
+                  </InnerShadow>
+               </effect></Button>
+            <Button fx:id="buttonDelete" layoutX="537.0" layoutY="21.0" mnemonicParsing="false" onAction="#deleteAlert" prefHeight="66.0" prefWidth="100.0" style="-fx-background-color: #f88585;" text="Delete Alerts">
+               <font>
+                  <Font name="Georgia Bold Italic" size="12.0" />
+               </font>
+               <effect>
+                  <InnerShadow>
+                     <input>
+                        <Glow />
+                     </input>
+                  </InnerShadow>
+               </effect></Button>
+            <Line endX="446.0" startX="-100.0" />
+            <Text fx:id="searchBy" strokeType="OUTSIDE" strokeWidth="0.0" text="By Account Name">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="130.0" fitWidth="152.0" layoutX="59.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/icon.png" />
+               </image>
+            </ImageView>
+            <TextArea fx:id="description" layoutX="38.0" layoutY="240.0" prefHeight="200.0" prefWidth="537.0" />
+            <Text fx:id="date" layoutX="39.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" wrappingWidth="40.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="accountName" layoutX="307.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account: " wrappingWidth="174.0">
+               <font>
+                  <Font name="System Italic" size="23.0" />
+               </font>
+            </Text>
+            <Text fill="#ff6b6b" layoutX="31.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alert #" wrappingWidth="149.0">
+               <font>
+                  <Font name="Arial" size="49.0" />
+               </font>
+            </Text>
+            <Text fx:id="alertID" fill="#ff6b6b" layoutX="181.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="##" wrappingWidth="61.0">
+               <font>
+                  <Font name="Arial" size="49.0" />
+               </font>
+            </Text>
+            <Text fx:id="severity" layoutX="440.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Severity: " wrappingWidth="82.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="74.0" fitWidth="61.0" layoutX="323.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/AccountsIcon.png" />
+               </image>
+            </ImageView>
+            <Text fill="#868181" layoutX="420.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Name Here]" wrappingWidth="149.0">
+               <font>
+                  <Font name="Arial" size="25.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="470.0" prefWidth="190.0" style="-fx-background-color: #ffe4cc; -fx-background-radius: 1em;">
+         <children>
+            <Button layoutX="25.0" layoutY="88.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="164.0" style="-fx-background-color: #ffdaaa;" text="Go to Account Details">
+               <effect>
+                  <DropShadow color="#794a12">
+                     <input>
+                        <Glow />
+                     </input>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Georgia Bold" size="12.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.7428571428571429" startX="0.880952380952381">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#4d4747" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Button layoutX="25.0" layoutY="125.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="164.0" style="-fx-background-color: #ffb760;" text="Check Balances">
+               <effect>
+                  <DropShadow color="#794a12">
+                     <input>
+                        <Glow />
+                     </input>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Georgia Bold" size="12.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.7428571428571429" startX="0.880952380952381">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#4d4747" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Button fx:id="button" layoutX="26.0" layoutY="162.0" onAction="#logOut" prefHeight="37.0" prefWidth="164.0" style="-fx-background-color: #ffdaaa;" text="Log Out">
+               <effect>
+                  <DropShadow color="#794a12">
+                     <input>
+                        <Glow />
+                     </input>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Georgia Bold" size="12.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.7428571428571429" startX="0.880952380952381">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#4d4747" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Button fx:id="backbutton" layoutX="26.0" layoutY="430.0" mnemonicParsing="false" onAction="#goBack" prefHeight="37.0" prefWidth="164.0" style="-fx-background-color: #ffecd8;" text="Go Back">
+               <effect>
+                  <DropShadow color="#403486">
+                     <input>
+                        <Glow />
+                     </input>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Georgia" size="12.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.7428571428571429" startX="0.880952380952381">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <AnchorPane prefHeight="470.0" prefWidth="25.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+   </children>
+</AnchorPane>

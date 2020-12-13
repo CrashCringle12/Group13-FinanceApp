@@ -1,12 +1,15 @@
 package Controller;
 
 import Model.Alertmodel;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -43,17 +46,17 @@ public class DetailedAlertController {
 
     @FXML // fx:id="image"
     private ImageView image; // Value injected by FXMLLoader
-    
+
     @FXML // fx:id="button"
     private Button button; // Value injected by FXMLLoader
     Alertmodel selectedModel;
-        
-  public void initData(Alertmodel model) {
-              System.out.println("TEst");
+
+    public void initData(Alertmodel model) {
+        System.out.println("TEst");
         selectedModel = model;
         alertID.setText(model.getId().toString());
         accountName.setText("Account: " + model.getAccountname());
-        severity.setText("Severity: " + (model.getSeverity() ? "Bad"  : "Moderate"));
+        severity.setText("Severity: " + (model.getSeverity() ? "Bad" : "Moderate"));
         date.setText("Datse: " + model.getDate().toString());
         date.setWrappingWidth(500);
         alertID.setWrappingWidth(200);
@@ -69,26 +72,27 @@ public class DetailedAlertController {
             System.out.println(ex.getMessage());
         }
     }
-  
+
     Scene previousScene;
+
     public void setTheOleScene(Scene scene) {
         previousScene = scene;
 
     }
-    
+
     //Borrowed from source code
     @FXML
     void goBack(ActionEvent event) {
         // option 1: get current stage -- from event
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        
-        
+
         if (previousScene != null) {
             stage.setScene(previousScene);
         }
 
     }
-        @FXML
+
+    @FXML
     void createAlert(ActionEvent event) {
         Scanner scnr = new Scanner(System.in);
         System.out.println("Please Enter ID");
@@ -126,7 +130,8 @@ public class DetailedAlertController {
         deleteAlert(alert);
 
     }
-   public Alertmodel readById(int id) {
+
+    public Alertmodel readById(int id) {
         Query query = manager.createNamedQuery("Alertmodel.findById");
         query.setParameter("ID", id);
 
@@ -139,6 +144,7 @@ public class DetailedAlertController {
         return s;
 
     }
+
     @FXML
     void updateAlert(ActionEvent event) {
         Scanner scnr = new Scanner(System.in);
@@ -164,6 +170,27 @@ public class DetailedAlertController {
 
         alert.setDescription(desc);
         update(alert);
+    }
+
+    @FXML
+    void logOut(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/startView.fxml"));
+
+        Parent detailedModelView = loader.load();
+
+        Scene tableViewScene = new Scene(detailedModelView);
+
+        signinController signInController = loader.getController();
+
+        Scene currentScene = ((Node) event.getSource()).getScene();
+        signInController.setTheOleScene(currentScene);
+
+        Stage stage = (Stage) currentScene.getWindow();
+
+        stage.setScene(tableViewScene);
+        stage.show();
+
     }
 
     //The below methods (delete, create, read, and modify were provided in demo
@@ -234,7 +261,7 @@ public class DetailedAlertController {
             System.out.println(ex.getMessage());
         }
     }
-   // Database manager
+    // Database manager
     EntityManager manager;
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
@@ -246,6 +273,6 @@ public class DetailedAlertController {
         assert severity != null : "fx:id=\"severity\" was not injected: check your FXML file 'mainmenu.fxml'.";
         assert accountName != null : "fx:id=\"accountName\" was not injected: check your FXML file 'mainmenu.fxml'.";
         assert image != null : "fx:id=\"image\" was not injected: check your FXML file 'mainmenu.fxml'.";
-        
+
     }
 }
