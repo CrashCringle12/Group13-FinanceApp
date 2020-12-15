@@ -52,23 +52,12 @@
                   <Font name="Georgia" size="18.0" />
                </font>
             </Text>
-            <Button fx:id="LoginButton" layoutX="493.0" layoutY="411.0" mnemonicParsing="false" onAction="#login" prefHeight="37.0" prefWidth="164.0" style="-fx-background-color: #ff8364;" text="LOG IN">
-               <effect>
-                  <DropShadow color="#854635">
-                     <input>
-                        <Glow />
-                     </input>
-                  </DropShadow>
-               </effect>
-               <font>
-                  <Font name="Times New Roman Bold" size="16.0" />
-               </font>
-            </Button>
             <Text layoutX="340.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Presented by Group 13" wrappingWidth="145.13671875">
                <font>
                   <Font name="Georgia Italic" size="13.0" />
                </font>
             </Text>
+            <PasswordField fx:id="passwordbar" layoutX="287.0" layoutY="185.0" prefHeight="25.0" prefWidth="369.0" promptText="Enter your Password" />
             <Pane fx:id="policyBox" layoutX="81.0" layoutY="223.0" prefHeight="175.0" prefWidth="591.0">
                <children>
                   <Text layoutX="296.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password Policy">
@@ -90,11 +79,22 @@
                         <Font name="Georgia" size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="emailbar" layoutX="208.0" layoutY="54.0" prefHeight="30.0" prefWidth="369.0" promptText="Enter your email" />
                   <PasswordField fx:id="password2bar" layoutX="208.0" layoutY="12.0" prefHeight="25.0" prefWidth="369.0" promptText="Retype Password" />
+                  <TextField fx:id="emailbar" layoutX="208.0" layoutY="54.0" prefHeight="30.0" prefWidth="369.0" promptText="Enter your email" />
                </children>
             </Pane>
-            <PasswordField fx:id="passwordbar" layoutX="287.0" layoutY="185.0" prefHeight="25.0" prefWidth="369.0" promptText="Enter your Password" />
+            <Button fx:id="LoginButton" layoutX="508.0" layoutY="411.0" mnemonicParsing="false" onAction="#login" prefHeight="37.0" prefWidth="164.0" style="-fx-background-color: #ff8364;" text="LOG IN">
+               <effect>
+                  <DropShadow color="#854635">
+                     <input>
+                        <Glow />
+                     </input>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Times New Roman Bold" size="16.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="470.0" prefWidth="42.0" style="-fx-background-color: #ffe4cc; -fx-background-radius: 1em;">

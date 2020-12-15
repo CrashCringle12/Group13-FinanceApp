@@ -70,7 +70,6 @@ public class signinController {
     public static String userName;
     
     private Scene scene;
-    
     @FXML
     void login(ActionEvent event) {
         policyBox.setVisible(false);
@@ -97,7 +96,7 @@ public class signinController {
         if (s != null) {
             if (s.getPassword().equals(user.getPassword())) {
                 try {
-                    nextScreen(s.getUsername());
+                    nextScreen(s);
                 } catch (IOException ex) {
                     Logger.getLogger(signinController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -106,7 +105,7 @@ public class signinController {
     }
     
     @FXML
-    void nextScreen(String username) throws IOException {
+    void nextScreen(Users user) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/mainview.fxml"));
 
@@ -115,8 +114,8 @@ public class signinController {
         Scene mainScene = new Scene(alertView);
 
         MainMenuController mainController = loader.getController();
-        mainController.setUsername(username);
-        userName = username;
+        
+        mainController.initData(user);
 
 
         mainController.setTheOleScene(scene);

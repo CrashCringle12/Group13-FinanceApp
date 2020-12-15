@@ -26,7 +26,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u")
     , @NamedQuery(name = "Users.findByUsername", query = "SELECT u FROM Users u WHERE u.username = :username")
     , @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password")
-    , @NamedQuery(name = "Users.findByEmail", query = "SELECT u FROM Users u WHERE u.email = :email")})
+    , @NamedQuery(name = "Users.findByEmail", query = "SELECT u FROM Users u WHERE u.email = :email")
+    , @NamedQuery(name = "Users.findByFirstname", query = "SELECT u FROM Users u WHERE u.firstname = :firstname")
+    , @NamedQuery(name = "Users.findByLastname", query = "SELECT u FROM Users u WHERE u.lastname = :lastname")
+    , @NamedQuery(name = "Users.findByAge", query = "SELECT u FROM Users u WHERE u.age = :age")
+    , @NamedQuery(name = "Users.findByAddress", query = "SELECT u FROM Users u WHERE u.address = :address")})
 public class Users implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -39,17 +43,40 @@ public class Users implements Serializable {
     private String password;
     @Column(name = "EMAIL")
     private String email;
+    @Column(name = "FIRSTNAME")
+    private String firstname;
+    @Column(name = "LASTNAME")
+    private String lastname;
+    @Column(name = "AGE")
+    private Integer age;
+    @Column(name = "ADDRESS")
+    private String address;
 
     public Users() {
+        this.age = 0;
+        this.firstname = "N/A";
+        this.lastname = "N/A";
+        this.address = "N/A";
+        this.email = "N/A";
     }
 
     public Users(String username) {
         this.username = username;
+        this.age = 0;
+        this.firstname = "N/A";
+        this.lastname = "N/A";
+        this.address = "N/A";
+        this.email = "N/A";
     }
 
     public Users(String username, String password) {
         this.username = username;
         this.password = password;
+        this.age = 0;
+        this.firstname = "N/A";
+        this.lastname = "N/A";
+        this.address = "N/A";
+        this.email = "N/A";
     }
 
     public String getUsername() {
@@ -74,6 +101,38 @@ public class Users implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     @Override

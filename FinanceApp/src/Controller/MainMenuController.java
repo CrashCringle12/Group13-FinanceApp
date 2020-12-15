@@ -4,6 +4,7 @@
 
 package Controller;
 
+import Model.Users;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -40,7 +41,9 @@ public class MainMenuController {
     @FXML // fx:id="userButton"
     private Button userButton; // Value injected by FXMLLoader
     
-    private String accountName;
+    private Users user;
+        private Scene scene;
+
     @FXML
     void toAlerts(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/AlertsView.fxml"));
@@ -80,24 +83,27 @@ public class MainMenuController {
     }
 
     @FXML
+
     void toDetails(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/AccountView.fxml"));
+        scene = ((Node) event.getSource()).getScene();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/UserDetailsView.fxml"));
 
-        Parent alertView = loader.load();
+        Parent userView = loader.load();
 
-        Scene mainScene = new Scene(alertView);
+        Scene mainScene = new Scene(userView);
 
-        AlertController alertController = loader.getController();
+        UserDetailsController userController = loader.getController();
+        
+        userController.initData(user);
 
 
-        alertController.setTheOleScene(((Node) event.getSource()).getScene());
-
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        userController.setTheOleScene(scene);
+        Stage stage = (Stage) scene.getWindow();
 
         stage.setScene(mainScene);
         stage.show();
     }
-
+    
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
         assert username != null : "fx:id=\"username\" was not injected: check your FXML file 'mainview.fxml'.";
@@ -105,8 +111,6 @@ public class MainMenuController {
         assert alertButton != null : "fx:id=\"alertButton\" was not injected: check your FXML file 'mainview.fxml'.";
         assert balanceButton != null : "fx:id=\"balanceButton\" was not injected: check your FXML file 'mainview.fxml'.";
         assert userButton != null : "fx:id=\"userButton\" was not injected: check your FXML file 'mainview.fxml'.";
-        username.setText(signinController.userName);
-        System.out.println(signinController.userName);
     }
     
     Scene previousScene;
@@ -115,9 +119,6 @@ public class MainMenuController {
 
     }
     
-    public void setUsername(String user) {
-        accountName = user;
-    }
     
     //Borrowed from source code
     @FXML
@@ -129,5 +130,11 @@ public class MainMenuController {
             stage.setScene(previousScene);
         }
 
+    }
+
+    void initData(Users user) {
+        this.user = user;
+        username.setText(user.getUsername());
+        System.out.println(user.getUsername());
     }
 }

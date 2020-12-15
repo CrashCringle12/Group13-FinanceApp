@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="833.0" style="-fx-background-radius: 2em; -fx-background-color: #fff; -fx-border-radius: 2em;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserDetailsController">
+   <children>
+      <AnchorPane layoutX="187.0" prefHeight="470.0" prefWidth="646.0" style="-fx-background-color: #fff4eb;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Button fx:id="buttonUpdate" layoutX="283.0" layoutY="416.0" mnemonicParsing="false" onAction="#updateDetails" prefHeight="37.0" prefWidth="164.0" style="-fx-background-color: #4c91c5;" text="Update Details">
+               <font>
+                  <Font name="Georgia Bold Italic" size="12.0" />
+               </font>
+               <effect>
+                  <InnerShadow>
+                     <input>
+                        <Glow />
+                     </input>
+                  </InnerShadow>
+               </effect></Button>
+            <Button fx:id="buttonDelete" layoutX="459.0" layoutY="416.0" mnemonicParsing="false" onAction="#deleteAccount" prefHeight="37.0" prefWidth="164.0" style="-fx-background-color: #f88585;" text="Delete Account">
+               <font>
+                  <Font name="Georgia Bold Italic" size="12.0" />
+               </font>
+               <effect>
+                  <InnerShadow>
+                     <input>
+                        <Glow />
+                     </input>
+                  </InnerShadow>
+               </effect></Button>
+            <ImageView fitHeight="177.0" fitWidth="153.0" layoutX="43.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/AccountsIcon.png" />
+               </image>
+            </ImageView>
+            <Text fill="#6f6c6c" layoutX="223.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" textAlignment="RIGHT" wrappingWidth="119.13671875">
+               <font>
+                  <Font name="Georgia Bold" size="19.0" />
+               </font>
+            </Text>
+            <Text fill="#6f6c6c" layoutX="223.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" textAlignment="RIGHT" wrappingWidth="119.13671875">
+               <font>
+                  <Font name="Georgia Bold" size="19.0" />
+               </font>
+            </Text>
+            <Text fill="#6f6c6c" layoutX="223.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" textAlignment="RIGHT" wrappingWidth="119.13671875">
+               <font>
+                  <Font name="Georgia Bold" size="19.0" />
+               </font>
+            </Text>
+            <Text fill="#6f6c6c" layoutX="223.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" textAlignment="RIGHT" wrappingWidth="119.13671875">
+               <font>
+                  <Font name="Georgia Bold" size="19.0" />
+               </font>
+            </Text>
+            <Text fill="#6f6c6c" layoutX="223.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" textAlignment="RIGHT" wrappingWidth="119.13671875">
+               <font>
+                  <Font name="Georgia Bold" size="19.0" />
+               </font>
+            </Text>
+            <Text fill="#6f6c6c" layoutX="223.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" textAlignment="RIGHT" wrappingWidth="119.13671875">
+               <font>
+                  <Font name="Georgia Bold" size="19.0" />
+               </font>
+            </Text>
+            <Text fill="#6f6c6c" layoutX="223.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age:" textAlignment="RIGHT" wrappingWidth="119.13671875">
+               <font>
+                  <Font name="Georgia Bold" size="19.0" />
+               </font>
+            </Text>
+            <Text fx:id="firstNameText" fill="#6f6c6c" layoutX="351.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="############" wrappingWidth="294.13671875">
+               <font>
+                  <Font name="Georgia Bold" size="19.0" />
+               </font>
+            </Text>
+            <Text fx:id="lastNameText" fill="#6f6c6c" layoutX="351.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="############" wrappingWidth="294.13671875">
+               <font>
+                  <Font name="Georgia Bold" size="19.0" />
+               </font>
+            </Text>
+            <Text fx:id="ageText" fill="#6f6c6c" layoutX="351.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="############" wrappingWidth="172.30857849121094">
+               <font>
+                  <Font name="Georgia Bold" size="19.0" />
+               </font>
+            </Text>
+            <Text fx:id="emailText" fill="#6f6c6c" layoutX="351.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="############" wrappingWidth="278.30857849121094">
+               <font>
+                  <Font name="Georgia Bold" size="19.0" />
+               </font>
+            </Text>
+            <Text fx:id="usernameText" fill="#6f6c6c" layoutX="351.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="############" wrappingWidth="278.30857849121094">
+               <font>
+                  <Font name="Georgia Bold" size="19.0" />
+               </font>
+            </Text>
+            <Text fx:id="passwordText" fill="#6f6c6c" layoutX="351.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="############" wrappingWidth="278.30857849121094">
+               <font>
+                  <Font name="Georgia Bold" size="19.0" />
+               </font>
+            </Text>
+            <Text fx:id="addressText" fill="#6f6c6c" layoutX="351.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="########################################" wrappingWidth="270.30857849121094">
+               <font>
+                  <Font name="Georgia Bold" size="19.0" />
+               </font>
+            </Text>
+            <Text fill="#6f6c6c" layoutX="52.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" textAlignment="RIGHT" wrappingWidth="119.13671875">
+               <font>
+                  <Font name="Georgia Bold" size="15.0" />
+               </font>
+            </Text>
+            <Text fill="#6f6c6c" layoutX="52.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" textAlignment="RIGHT" wrappingWidth="119.13671875">
+               <font>
+                  <Font name="Georgia Bold" size="15.0" />
+               </font>
+            </Text>
+            <Text fill="#6f6c6c" layoutX="305.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" textAlignment="RIGHT" wrappingWidth="119.13671875">
+               <font>
+                  <Font name="Georgia Bold" size="15.0" />
+               </font>
+            </Text>
+            <Text fill="#6f6c6c" layoutX="305.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" textAlignment="RIGHT" wrappingWidth="119.13671875">
+               <font>
+                  <Font name="Georgia Bold" size="15.0" />
+               </font>
+            </Text>
+            <Text fill="#6f6c6c" layoutX="305.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" textAlignment="RIGHT" wrappingWidth="119.13671875">
+               <font>
+                  <Font name="Georgia Bold" size="15.0" />
+               </font>
+            </Text>
+            <Text fill="#6f6c6c" layoutX="52.0" layoutY="383.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" textAlignment="RIGHT" wrappingWidth="119.13671875">
+               <font>
+                  <Font name="Georgia Bold" size="15.0" />
+               </font>
+            </Text>
+            <Text fill="#6f6c6c" layoutX="52.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age:" textAlignment="RIGHT" wrappingWidth="119.13671875">
+               <font>
+                  <Font name="Georgia Bold" size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="firstNameBox" layoutX="181.0" layoutY="272.0" />
+            <TextField fx:id="lastNameBox" layoutX="181.0" layoutY="304.0" />
+            <TextField fx:id="ageBox" layoutX="181.0" layoutY="335.0" prefHeight="25.0" prefWidth="71.0" />
+            <TextField fx:id="addressBox" layoutX="181.0" layoutY="365.0" prefHeight="46.0" prefWidth="190.0" />
+            <TextField fx:id="emailBox" layoutX="431.0" layoutY="272.0" />
+            <TextField fx:id="usernameBox" layoutX="431.0" layoutY="304.0" />
+            <PasswordField fx:id="passwordBox" layoutX="431.0" layoutY="335.0" />
+            <Text layoutX="33.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Details">
+               <font>
+                  <Font name="Georgia Bold Italic" size="19.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="470.0" prefWidth="190.0" style="-fx-background-color: #ffe4cc; -fx-background-radius: 1em;">
+         <children>
+            <Button fx:id="buttonAlert" layoutX="25.0" layoutY="88.0" mnemonicParsing="false" onAction="#toAlerts" prefHeight="37.0" prefWidth="164.0" style="-fx-background-color: #ffdaaa;" text="Check Alerts">
+               <effect>
+                  <DropShadow color="#794a12">
+                     <input>
+                        <Glow />
+                     </input>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Georgia Bold" size="12.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.7428571428571429" startX="0.880952380952381">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#4d4747" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Button layoutX="25.0" layoutY="125.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="164.0" style="-fx-background-color: #ffb760;" text="Check Balances">
+               <effect>
+                  <DropShadow color="#794a12">
+                     <input>
+                        <Glow />
+                     </input>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Georgia Bold" size="12.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.7428571428571429" startX="0.880952380952381">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#4d4747" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Button fx:id="button" layoutX="26.0" layoutY="162.0" onAction="#logOut" prefHeight="37.0" prefWidth="164.0" style="-fx-background-color: #ffdaaa;" text="Log Out">
+               <effect>
+                  <DropShadow color="#794a12">
+                     <input>
+                        <Glow />
+                     </input>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Georgia Bold" size="12.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.7428571428571429" startX="0.880952380952381">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#4d4747" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Button fx:id="backbutton" layoutX="26.0" layoutY="430.0" mnemonicParsing="false" onAction="#goBack" prefHeight="37.0" prefWidth="164.0" style="-fx-background-color: #ffecd8;" text="Go Back">
+               <effect>
+                  <DropShadow color="#403486">
+                     <input>
+                        <Glow />
+                     </input>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Georgia" size="12.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.7428571428571429" startX="0.880952380952381">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <AnchorPane prefHeight="470.0" prefWidth="25.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+   </children>
+</AnchorPane>
